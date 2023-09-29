@@ -8,7 +8,7 @@ function [K,Q,M,Ksigma]=assemble(le,EI,GJ,I0,A,J0,q,qt,S,T,m,P,ndof,nelem);
 % K		System stiffness matrix
 % Q		System load vector
 % M		System mass matrix
-% Ksigma       System initial stress matrix
+% Ksigma       System initial stress matrix blabala
 %
 % le		element length [m]
 % EI		element bending stiffness [Nm2]
