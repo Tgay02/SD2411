@@ -21,4 +21,5 @@ Ke=[12*EI/h^3 -6*EI/h^2 0 (-12)*EI/h^3 (-6)*EI 0 ;
     (-12)*EI/h^3 6*EI/h^2 0 12*EI/h^3 6*EI/h^2 0;
     (-6)*EI/h^2 2*EI/h 0 6*EI/h^2 4*EI/h 0;
     0 0 (-GJ)/h 0 0 GJ/h]
+
 end
