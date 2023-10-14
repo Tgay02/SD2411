@@ -49,3 +49,6 @@ end
 % Add concentrated loads
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Q(end-2) = Q(end-2) + S
+Q(end-1) = Q(end-1) 
+Q(end) = Q(end)

@@ -33,8 +33,8 @@ w=[0 0 0 ws]
 
 % Present displacements at the free end
 %these are going to be the maximum values of the 
-umax=w(end-3)
-tmax=w(end-2)
+umax=w(end-2)
+tmax=w(end-1)
 fimax=w(end)
 
 % Present reaction forces

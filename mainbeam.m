@@ -29,7 +29,7 @@ T=1;		% Beam end torque [Nm]
 P=-1.;		% Buckling load [N]
 
 % Element input data
-nelem=2;		% number of elements
+nelem=10;		% number of elements
 le=L/nelem;		% length of elements for even distribution
 ndof=3*(nelem+1);	% number of degrees of freedom
 nnode=nelem+1;		% number of nodes
