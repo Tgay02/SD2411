@@ -5,6 +5,7 @@
 % Use SI units only
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 % Definitions and input data
 L=1.0;		% Length [m]
 E=7E+10;	% Youngs modulus [N/m2]
@@ -17,6 +18,7 @@ I0=4E-8;	% Polar moment of inertia [m4]
 A=1.2E-4;	% Cross-section area [m2]
 ro=2700;	% Material density [kg/m3]
 J0=I0*ro;	% Mass moment of inertia [kgm]
+h=0.04;
 
 % Loads and masses
 m=A*ro;	% mass per unit length of elements [kg/m]
@@ -27,7 +29,7 @@ T=1;		% Beam end torque [Nm]
 P=-1.;		% Buckling load [N]
 
 % Element input data
-nelem=10;		% number of elements
+nelem=2;		% number of elements
 le=L/nelem;		% length of elements for even distribution
 ndof=3*(nelem+1);	% number of degrees of freedom
 nnode=nelem+1;		% number of nodes
@@ -50,15 +52,15 @@ Ms=M(4:ndof,4:ndof);
 Ksigmas=Ksigma(4:ndof,4:ndof);
 
 % Solve beam bending and torsion equation and present results
-
+ 
 [defl,teta,fi,wmax,tmax,fimax]=bending(Ks,Qs,K,Q,nnode,node_z);
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Solve beam buckling equation and plot results
-% The torsional buckling modes will all give identical load factors
-% pb is a matrix containing the buckling load factors, in ascending order
-% ub is a matrix of corresponding buckling modes (as columns)
-% (Column i of ub is buckling mode of buckling load (i,i) in pb)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Solve beam buckling equation and plot results
+% % The torsional buckling modes will all give identical load factors
+% % pb is a matrix containing the buckling load factors, in ascending order
+% % ub is a matrix of corresponding buckling modes (as columns)
+% % (Column i of ub is buckling mode of buckling load (i,i) in pb)
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 [pb,ub]=buckle(Ks,Ksigmas,nnode,node_z);
 
