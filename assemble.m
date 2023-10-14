@@ -30,8 +30,19 @@ K=zeros(ndof);
 Q=zeros(ndof,1);
 M=zeros(ndof);
 Ksigma=zeros(ndof);
+k=0;
 
+for i=1:nelem
 
+    Ke=elk(le,EI,GJ);
+    Qe=elq(le,q,qt);
+    Kesigma=elksigma(le,P,I0,A);
+    K(k+1:k+6,k+1:k+6)=K(k+1:k+6,k+1:k+6)+Ke;
+    Ksigma(k+1:k+6,k+1:k+6)=Ksigma(k+1:k+6,k+1:k+6)+Kesigma;
+    Q(k+1:k+6)=Q(k+1:k+6)+Qe;
+    k=k+3;
+
+end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
