@@ -1,6 +1,6 @@
-function [Ke]=elk(le,EI,GJ);
+function [Ke]=elk(le,EI,GJ)
 
-h=40 %mm
+h=le; %m
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Assemble element stiffness matrix
