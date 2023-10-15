@@ -44,12 +44,11 @@ for i=1:nelem
     
 
 end
-K
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Add concentrated loads
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Q(end-2) = Q(end-2) + S
-Q(end-1) = Q(end-1) + P
-Q(end) = Q(end) + T
+Q(end-2) = Q(end-2) + S;
+Q(end-1) = Q(end-1) + P;
+Q(end) = Q(end) + T;

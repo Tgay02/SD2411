@@ -1,4 +1,4 @@
-function [pb,ub]=buckle(Ks,Ksigmas,nnode,node_z);
+function [pb,ub]=buckle(Ks,Ksigmas,nnode,node_z)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Solve beam buckling equation
@@ -15,13 +15,12 @@ function [pb,ub]=buckle(Ks,Ksigmas,nnode,node_z);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Calculate eigenvalues and eigenvectors
-[ub,pb]=eig(Ks,-Ksigmas)
+[ub,pb]=eig(Ks,-Ksigmas);
 
 % Split bending and twist modes into separate vectors
 
 %bending is the fist 2*nelem=2*(nnodes-1)
 b=2*(nnode-1); %element index
-
 %bending eigen vectors 
 %bend_vect=ub(:,1:b) %columnwise indexing creating for the bending vectors 
 %torsion
@@ -42,37 +41,41 @@ end
 % Plot buckling modes
 
 % %bending vectors has the deflection and rotation component other zero
-bend_defl=bend_vect(1:3:end,:)
-bend_teta=bend_vect(2:3:end,:)
+bend_defl=bend_vect(1:3:end,:);
+bend_teta=bend_vect(2:3:end,:);
 % %torsion has the twisting componenst others are 0
-tors_fi=tors_vect(3:3:end,:)
+tors_fi=tors_vect(3:3:end,:);
 
-for i=1:length(b)
-    bend_defl(:,i)=bend_defl(:,i)/norm(bend_defl(:,i))
-    wdefl=[0, bend_defl(:,i).']
+for i=1:b
+    hold on
+    bend_defl(:,i)=bend_defl(:,i)/norm(bend_defl(:,i));
+    wdefl = [0, bend_defl(:,i).'];
     subplot(3,2,2)
     plot(node_z,wdefl)
     legend(string(i)+'.vectors deflection')
-    hold on
 
-    bend_teta(:,i)=bend_teta(:,i)/norm(bend_teta(:,i))
-    wtetal=[0,bend_teta(:,i).']
+end
+
+for i=1:b
+    hold on
+    bend_teta(:,i)=bend_teta(:,i)/norm(bend_teta(:,i));
+    wtetal = [0,bend_teta(:,i).'];
     subplot(3,2,4)
     plot(node_z,wtetal)
     legend(string(i)+'.vectors rotation')
-    hold on
 
-    
+    hold off
 
 end 
 
 for i=1:length(tors_fi(1,:))
-    tors_fi(:,i)=tors_fi(:,i)/norm(tors_fi(:,i))
-    wfi=[0,tors_fi(:,i).']
+    hold on
+    tors_fi(:,i)=tors_fi(:,i)/norm(tors_fi(:,i));
+    wfi = [0,tors_fi(:,i).'];
     subplot(3,2,6)
     plot(node_z,wfi)
     legend(string(i)+'.vectors twist')
-    hold on
+    hold off
 
 end
 

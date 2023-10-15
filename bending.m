@@ -1,8 +1,8 @@
-function [defl,teta,fi,umax,tmax,fimax]=bending(Ks,Qs,K,Q,nnode,node_z);
+function [defl,teta,fi,umax,tmax,fimax]=bending(Ks,Qs,K,Q,nnode,node_z)
 
-defl=zeros(1,nnode);
-teta=zeros(1, nnode);
-fi=zeros(1, nnode);
+% defl=zeros(1,nnode);
+% teta=zeros(1, nnode);
+% fi=zeros(1, nnode);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Calculate deformed beam bending and torsion shape and plot results
@@ -25,17 +25,17 @@ fi=zeros(1, nnode);
 %w = [defl teta fi]
 % Solve system of equations for the system matrix 
 %in this matrix the parts connected to the wall are removed in the main
-ws=Qs.'*inv(Ks);
+ws=Qs.'/Ks;
 
 %applying the boundary conditions to the force vector
 %moving back the boundary values --> get the displacement
-w=[0 0 0 ws] 
+w=[0 0 0 ws];
 
 % Present displacements at the free end
 %these are going to be the maximum values of the 
-umax=w(end-2)
-tmax=w(end-1)
-fimax=w(end)
+umax=w(end-2);
+tmax=w(end-1);
+fimax=w(end);
 
 % Present reaction forces
 %F_R=K*w-F
@@ -45,15 +45,15 @@ F_R=K*w.'-Q
 %it is inside the w vector?
 
 % Split deflections, rotations and twist into separate vectors
-defl=w(1:3:end)
-teta=w(2:3:end)
-fi=w(3:3:end)
+defl=w(1:3:end);
+teta=w(2:3:end);
+fi=w(3:3:end);
 
 % Normalise deflections, rotations and twist and plot results
-defl=defl/abs(umax)
-teta=teta/abs(tmax)
-%fi=fi/norm(fi) %norm(fi)=0 therefore not a valid
-% 
+defl=defl/abs(umax);
+teta=teta/abs(tmax);
+fi=fi/abs(fimax);
+
 subplot(3,2,1)
 plot(node_z,defl)
 title('Normalized Displacement')
