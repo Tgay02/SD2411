@@ -18,7 +18,7 @@ I0=4E-8;	% Polar moment of inertia [m4]
 A=1.2E-4;	% Cross-section area [m2]
 ro=2700;	% Material density [kg/m3]
 J0=I0*ro;	% Mass moment of inertia [kgm]
-h=0.04;
+%h=0.04;
 
 % Loads and masses
 m=A*ro;	% mass per unit length of elements [kg/m]
@@ -29,7 +29,7 @@ T=0;		% Beam end torque [Nm]
 P=0.;		% Buckling load [N]
 
 % Element input data
-nelem=2;		% number of elements
+nelem=10;		% number of elements
 le=L/nelem;		% length of elements for even distribution
 ndof=3*(nelem+1);	% number of degrees of freedom
 nnode=nelem+1;		% number of nodes

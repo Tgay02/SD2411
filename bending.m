@@ -50,8 +50,8 @@ teta=w(2:3:end)
 fi=w(3:3:end)
 
 % Normalise deflections, rotations and twist and plot results
-defl=defl/umax
-teta=teta/tmax
+defl=defl/abs(umax)
+teta=teta/abs(tmax)
 %fi=fi/norm(fi) %norm(fi)=0 therefore not a valid
 
 subplot(2,1,1)
