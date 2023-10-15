@@ -53,13 +53,22 @@ fi=w(3:3:end)
 defl=defl/abs(umax)
 teta=teta/abs(tmax)
 %fi=fi/norm(fi) %norm(fi)=0 therefore not a valid
+% 
+subplot(3,2,1)
+plot(node_z,defl)
+title('Normalized Displacement')
+xlabel("x/L")
+ylabel('$$\frac{\omega}{\omega_{max}}$$',"Rotation",0,'Interpreter','latex');
 
-subplot(2,1,1)
-plot(node_z,defl, node_z,teta,node_z, fi )
-legend('deflection', 'rotation', 'twist')
+subplot(3,2,3)
+plot(node_z,teta)
+title('Normalized Rotation')
+xlabel x/L
+ylabel('$$\frac{\theta}{\theta_{max}}$$',"Rotation",0,'Interpreter','latex');
 
-subplot(2,1,2)
-plot(node_z, F_R(1:3:end),node_z, F_R(2:3:end),node_z, F_R(3:3:end))
-legend('deflection reaction force', 'rotation reaction force', 'twist reaction force')
-
+subplot(3,2,5)
+plot(node_z,fi)
+title('Normalized Twist')
+xlabel x/L
+ylabel('$$\frac{\phi}{\phi_{max}}$$',"Rotation",0,'Interpreter','latex');
 end

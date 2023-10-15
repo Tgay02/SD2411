@@ -26,10 +26,10 @@ q=0;           % Distributed load [N/m]
 qt=0;		% Distributed torque [Nm/m]
 S=1;           % Concentrated load at end of beam [N]
 T=0;		% Beam end torque [Nm]
-P=0.;		% Buckling load [N]
+P=-1;		% Buckling load [N]
 
 % Element input data
-nelem=10;		% number of elements
+nelem=2;		% number of elements
 le=L/nelem;		% length of elements for even distribution
 ndof=3*(nelem+1);	% number of degrees of freedom
 nnode=nelem+1;		% number of nodes
@@ -62,5 +62,5 @@ Ksigmas=Ksigma(4:ndof,4:ndof);
 % % ub is a matrix of corresponding buckling modes (as columns)
 % % (Column i of ub is buckling mode of buckling load (i,i) in pb)
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%[pb,ub]=buckle(Ks,Ksigmas,nnode,node_z);
+[pb,ub]=buckle(Ks,Ksigmas,nnode,node_z);
 
