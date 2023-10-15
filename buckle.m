@@ -52,7 +52,12 @@ for i=1:b
     wdefl = [0, bend_defl(:,i).'];
     subplot(3,2,2)
     plot(node_z,wdefl)
-    legend(string(i)+'.vectors deflection')
+    legendInfo{i} = [string(i)+'.eig vect'];
+    title('Normalized Displacement for buckling')
+    xlabel("x/L")
+    ylabel('$$\frac{\omega}{|\omega|}$$',"Rotation",0,'Interpreter','latex');
+    legend(legendInfo,'Location','eastoutside')
+    hold off
 
 end
 
@@ -62,8 +67,11 @@ for i=1:b
     wtetal = [0,bend_teta(:,i).'];
     subplot(3,2,4)
     plot(node_z,wtetal)
-    legend(string(i)+'.vectors rotation')
-
+    legendInfo{i} = [string(i)+'.eig vect'];
+    title('Normalized Rotation for buckling')
+    xlabel x/L
+    ylabel('$$\frac{\theta}{|\theta|}$$',"Rotation",0,'Interpreter','latex');
+    legend(legendInfo,'Location','eastoutside')
     hold off
 
 end 
@@ -74,7 +82,11 @@ for i=1:length(tors_fi(1,:))
     wfi = [0,tors_fi(:,i).'];
     subplot(3,2,6)
     plot(node_z,wfi)
-    legend(string(i)+'.vectors twist')
+    legendInfo{i} = [string(i)+'.eig vect'];
+    title('Normalized Rotation for buckling')
+    xlabel x/L
+    ylabel('$$\frac{\phi}{|\phi|}$$',"Rotation",0,'Interpreter','latex');
+    legend(legendInfo,'Location','eastoutside')
     hold off
 
 end

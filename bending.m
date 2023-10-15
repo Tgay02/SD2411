@@ -56,19 +56,19 @@ fi=fi/abs(fimax);
 
 subplot(3,2,1)
 plot(node_z,defl)
-title('Normalized Displacement')
+title('Normalized Displacement for bending')
 xlabel("x/L")
 ylabel('$$\frac{\omega}{\omega_{max}}$$',"Rotation",0,'Interpreter','latex');
 
 subplot(3,2,3)
 plot(node_z,teta)
-title('Normalized Rotation')
+title('Normalized Rotation for bending')
 xlabel x/L
 ylabel('$$\frac{\theta}{\theta_{max}}$$',"Rotation",0,'Interpreter','latex');
 
 subplot(3,2,5)
 plot(node_z,fi)
-title('Normalized Twist')
+title('Normalized Twist for bending')
 xlabel x/L
 ylabel('$$\frac{\phi}{\phi_{max}}$$',"Rotation",0,'Interpreter','latex');
 end
