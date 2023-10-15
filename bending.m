@@ -50,9 +50,9 @@ teta=w(2:3:end)
 fi=w(3:3:end)
 
 % Normalise deflections, rotations and twist and plot results
-defl=defl/norm(defl)
-teta=teta/norm(teta)
-%fi=fi/norm(fi) norm(fi)=0 therefore not a valid
+defl=defl/umax
+teta=teta/tmax
+%fi=fi/norm(fi) %norm(fi)=0 therefore not a valid
 
 subplot(2,1,1)
 plot(node_z,defl, node_z,teta,node_z, fi )

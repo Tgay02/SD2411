@@ -30,7 +30,6 @@ b=2*(nnode-1); %element index
 bend_vect=ub(:,1:b) %columnwise indexing creating for the bending vectors 
 %bending eigen values
 bend_labm=diag_pb(1:b)
-
 %torsin eigen vectors
 tors_vect=ub(:,b+1:end)
 %torsion eigen values
