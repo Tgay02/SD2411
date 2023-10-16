@@ -4,29 +4,29 @@
 %
 % Use SI units only
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+clf
 
 % Definitions and input data
-L=1.0;		% Length [m]
-E=7E+10;	% Youngs modulus [N/m2]
-G=2.6923E+10;	% Shear modulus [N/m2]
-I=2E-9;		% Moment of inertia about x-axis [m4]
-J=1E-9;		% Torsional constant [m4]
-EI=E*I;		% Bending stiffness [Nm2]
-GJ=G*J;		% Torsional stiffness [Nm2]
-I0=4E-8;	% Polar moment of inertia [m4]
-A=1.2E-4;	% Cross-section area [m2]
-ro=2700;	% Material density [kg/m3]
-J0=I0*ro;	% Mass moment of inertia [kgm]
+L=1 %1.0;		% Length [m]
+E=1 %7E+10;	% Youngs modulus [N/m2]
+G=1%2.6923E+10;	% Shear modulus [N/m2]
+I=1%2E-9;		% Moment of inertia about x-axis [m4]
+J=1%1E-9;		% Torsional constant [m4]
+EI=1%E*I;		% Bending stiffness [Nm2]
+GJ=1%G*J;		% Torsional stiffness [Nm2]
+I0=1%4E-8;	% Polar moment of inertia [m4]
+A=1%1.2E-4;	% Cross-section area [m2]
+ro=1%2700;	% Material density [kg/m3]
+J0=1%I0*ro;	% Mass moment of inertia [kgm]
 %h=0.04;
 
 % Loads and masses
 m=A*ro;	% mass per unit length of elements [kg/m]
 q=0;           % Distributed load [N/m]
-qt=0;		% Distributed torque [Nm/m]
+qt=1;		% Distributed torque [Nm/m]
 S=0;           % Concentrated load at end of beam [N]
 T=0;		% Beam end torque [Nm]
-P=1;		% Buckling load [N]
+P=-1;		% Buckling load [N]
 
 % Element input data
 nelem=10;		% number of elements

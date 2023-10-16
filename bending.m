@@ -45,14 +45,14 @@ F_R=K*w.'-Q
 %it is inside the w vector?
 
 % Split deflections, rotations and twist into separate vectors
-defl=w(1:3:end);
-teta=w(2:3:end);
-fi=w(3:3:end);
+defl=w(1:3:end)
+teta=w(2:3:end)
+fi=w(3:3:end)
 
 % Normalise deflections, rotations and twist and plot results
 defl=defl/abs(umax);
 teta=teta/abs(tmax);
-fi=fi/abs(fimax);
+%fi=fi/abs(fimax)
 
 subplot(3,2,1)
 plot(node_z,defl)
